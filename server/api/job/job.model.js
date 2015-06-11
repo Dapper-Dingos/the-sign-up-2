@@ -9,6 +9,8 @@ var JobSchema = new Schema({
   category: String,
   info: String,
   location: String,
+  lng : Number,
+  lat : Number,
   description: String,
   price: Number,
   active: Boolean

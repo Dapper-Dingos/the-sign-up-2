@@ -52,7 +52,6 @@ angular.module('theSignUp2App')
                   .catch(function(err){
                       $scope.errors.other = err.message;
                   })
-      
               })
               .catch(function(err){
                 $scope.errors.other = err.message;
@@ -60,29 +59,29 @@ angular.module('theSignUp2App')
 
 
     $scope.createJob = function() {
-      console.log(this.location)
+      //geolocates and saves GPS cooridnates of location provided
       var address = document.getElementById('address').value;
       $scope.geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-         this.location = results[0].geometry.location;
+         $scope.job.lng = results[0].geometry.location.A;
+         $scope.job.lat = results[0].geometry.location.F;
+         console.log($scope.job.lat, $scope.job.lng)
         } else {
-          alert('Geocode was not successful for the following reason: ' + status);
+          alert('Please enter a valid location');
         }
-      });
       console.log('profile.controller.js: createJob', $scope.job)
       $scope.jobs.push($scope.job)
       Profile.createJob($scope.job)
         .then( function(data) {
+          console.log(data)
           $scope.jobPosted = data;
           $scope.createJobPressed = false;
           $scope.job = {}
+
         })
         .catch( function(err) {
           $scope.errors.other = err.message;
-        }); 
+        });
+        }) 
     }
-
-
-
-
   });

@@ -7,6 +7,7 @@ angular.module('theSignUp2App')
 
     $scope.login = function(form) {
       $scope.submitted = true;
+      console.log('subbmititng lasoidjkm')
 
       if(form.$valid) {
         Auth.login({
