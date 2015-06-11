@@ -9,14 +9,9 @@ angular.module('theSignUp2App')
     $scope.dynamicMoveCtr = 0;
     $scope.message = 'Its working!!!!';
     $scope.geocoder;
+    $scope.jobsList;
     $scope.marker = {
-      id: 0,
-      coords: {
-        latitude: 30.267153,
-        longitude: -97.74306079999997
-      },
-      events: {
-        }
+      id: 0
       }
 
     //function for taking 
@@ -50,14 +45,20 @@ angular.module('theSignUp2App')
 
 
 	$scope.markerJobs = function(){
-
-
-
 		JobsFactory.getJobs()
               .then(function(data){
-                $scope.jobs = data;
+              	data.forEach(function(job){
+              	job.coords = {
+              		latitude: job.latitude,
+              		longitude: job.longitude
+              	}
+              })
+                $scope.jobsList = data;
+                console.log($scope.jobsList)
 			})
 	}
-	console.log($scope.jobs)
+
+	$scope.markerJobs();
+
 
   });
