@@ -6,7 +6,7 @@
         <div id='popUp' class="col s12 m6">
           <div class="card darken-1">
             <div class="card-content black-text">
-              <span class="card-title black-text"><b>{{job.name}}</b></span>
+              <span class="card-title black-text"><b>{{job.name}}</b></span><img class='picture' src='{{job.picture}}'>
 
       <p class='flow-text'>{{job.location}}{{job.date}}</p>
             </div>
@@ -14,7 +14,7 @@
               <p class='flow-text'>{{job.description}}</p>
             </div>
         </div>
-            <a id='help' class="btn indigo lighten-4">Help?</a>
+            <a id='help' class="btn indigo lighten-4">Help Out!!</a>
     	</div>
        </ui-gmap-marker>
     </ui-gmap-google-map>
@@ -22,7 +22,8 @@
 
 <script>
 $(document).ready(function() {
- 			$('.gm-style-iw').parent().addClass("windowBox");
+ 			$('#popUp').parent().addClass("windowBox");
+ 			console.log('hello')
  			})
 
 </script>
