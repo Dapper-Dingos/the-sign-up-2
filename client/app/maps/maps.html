@@ -3,15 +3,26 @@
       <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
         <ui-gmap-marker data-ng-repeat='job in jobsList track by $index' coords="job.coords" idkey='job._id' closeClick="closeClick()">
         <ui-gmap-window isIconVisibleOnClick='true' options="windowOptions" show="show" idkey='job._id' >
-       <div id="content">
-      <div id="siteNotice">
-      </div>
-      <h1 id="firstHeading" class="firstHeading">{{job.name}}</h1>
-      <div id="bodyContent">
-      <p><b>{{job.location}}</b><b>{{job.date}}</b></p>
-      <p>{{job.description}}</p>
-      </div>
-      </div>
+        <div id='popUp' class="col s12 m6">
+          <div class="card darken-1">
+            <div class="card-content black-text">
+              <span class="card-title black-text"><b>{{job.name}}</b></span>
+
+      <p class='flow-text'>{{job.location}}{{job.date}}</p>
+            </div>
+            <div class="card-action">
+              <p class='flow-text'>{{job.description}}</p>
+            </div>
+        </div>
+            <a id='help' class="btn indigo lighten-4">Help?</a>
+    	</div>
        </ui-gmap-marker>
     </ui-gmap-google-map>
 </div>
+
+<script>
+$(document).ready(function() {
+ 			$('.gm-style-iw').parent().addClass("windowBox");
+ 			})
+
+</script>
