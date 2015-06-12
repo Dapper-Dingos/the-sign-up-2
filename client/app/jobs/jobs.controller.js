@@ -86,13 +86,6 @@ angular.module('theSignUp2App')
                 $scope.jobs.forEach(function(j) {
                   $scope.jobFriends.push(j.byUserId)
                 })
-                Message.getFriends($scope.jobFriends)
-                  .then(function(data){
-                      for (var i = 0; i < data.length; i++) {
-                        $scope.friends[data[i]._id] = data[i].name
-                      };
-                      console.log($scope.friends + 'friends!')
-                  })
                   .catch(function(err){
                       $scope.errors.other = err.message;
                   })

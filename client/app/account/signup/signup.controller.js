@@ -16,7 +16,7 @@ angular.module('theSignUp2App')
         })
         .then( function() {
           // Account created, redirect to home
-          $location.path('/');
+          // $location.path('/')
         })
         .catch( function(err) {
           err = err.data;

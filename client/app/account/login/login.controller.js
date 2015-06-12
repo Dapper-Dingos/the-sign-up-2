@@ -16,6 +16,7 @@ angular.module('theSignUp2App')
         })
         .then( function() {
           // Logged in, redirect to home
+          console.log("logged in")
           // $location.path('/profile');
         })
         .catch( function(err) {
@@ -26,5 +27,6 @@ angular.module('theSignUp2App')
 
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
+      // $location.path('/profile');
     };
   });

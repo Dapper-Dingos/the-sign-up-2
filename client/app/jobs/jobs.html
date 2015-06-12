@@ -74,7 +74,7 @@
     <div class="col s6">
       <div class="box" id='jobList'>
         <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
-          <li ng-repeat="job in jobs | filter">
+          <li ng-repeat="job in jobs | orderBy: reverse">
             <div class="collapsible-header blue white-text"  ng-class="($index==1) ? 'active' : ''">
                {{ job.description }} </div>
                 <div class="collapsible-body blue lighten-3">
@@ -160,7 +160,7 @@
         $('.collapsible').collapsible({
       accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
     }).promise(console.log('happend'));
-      },500)
+      },1000)
 
       $('.modalCore').leanModal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
