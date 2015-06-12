@@ -59,9 +59,8 @@
 
 <div ng-controller="JobsCtrl"> 
   <div class='row'>
-  
     <div class="col s6">
-      <div id='jobList'>
+      <div class="box" id='jobList'>
         <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
           <li ng-repeat="job in jobs | filter">
             <div class="collapsible-header blue white-text"  ng-class="($index==1) ? 'active' : ''">
@@ -80,15 +79,15 @@
                           <p> Address </strong>: {{ job.location }} </p>
                           
                         </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
     </div>
-    <div class='col s6' ng-include="'app/maps/maps.html'"></div>
+                <div class='col s6' ng-include="'app/maps/maps.html'"></div>
   </div>
 </div>
 <!--   <div class='col s6'>
