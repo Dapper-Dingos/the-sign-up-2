@@ -69,6 +69,10 @@ angular.module('theSignUp2App')
 			})
 	}
 
+	$scope.$on('jobSubmit', function(event) {
+		$scope.markerJobs();
+	})
+
 	$scope.markerJobs();
 
 
