@@ -20,7 +20,7 @@ body{
 /*	margin-bottom: 250px*/
 /*	width: 250px;
 	height: 250px;*/
-	overflow: auto;
+	overflow: scroll;
 }
 
 .category {
@@ -69,4 +69,8 @@ h5 {
 /*	width: auto;*/
 	/*height: 100%;*/
 /*	float: left;*/
+}
+
+.listPic{
+	float: left;
 }
