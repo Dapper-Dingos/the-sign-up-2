@@ -71,7 +71,6 @@
 
 <div ng-controller="JobsCtrl"> 
   <div class='row'>
-  
     <div class="col s6">
       <div class="box" id='jobList'>
         <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
@@ -91,15 +90,15 @@
                           <p> Address </strong>: {{ job.location }} </p>
                           
                         </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
     </div>
-    <div class='col s6' ng-include="'app/maps/maps.html'"></div>
+                <div class='col s6' ng-include="'app/maps/maps.html'"></div>
   </div>
 </div>
 <!--   <div class='col s6'>
