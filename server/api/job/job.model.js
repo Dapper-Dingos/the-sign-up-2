@@ -15,7 +15,8 @@ var JobSchema = new Schema({
   description: String,
   price: Number,
   active: Boolean,
-  picture: String
+  picture: String,
+  friends: []
 });
 
 module.exports = mongoose.model('Job', JobSchema);

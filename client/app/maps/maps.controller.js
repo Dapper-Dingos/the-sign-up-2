@@ -76,11 +76,5 @@ angular.module('theSignUp2App')
 	$scope.jobTracker = function(job){
 	}
 
-	$scope.renderPicture = function(url){
-		return '<img src="' + url + '">'
-	}
-
-
-
 
 });
