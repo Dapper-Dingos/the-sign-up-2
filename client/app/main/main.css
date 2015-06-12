@@ -1,9 +1,10 @@
 body{
     /*background-color: #e65100;*/ /*orange darken-4*/
     /*background-color: #3b5998;*/ /*bluish purple*/
-    background-color: #546e7a; /*blue grey darken 1*/
+    /*background-color: #546e7a;*/ /*blue grey darken 1*/
     /*background-color: #689f38;*/ /*light-green darken-2*/
     /*background-color: #FFAB00;*/ /*amber accent-4*/
+    background-color: #ffffff; /*cyan lighten-4*/
 }
 
 .thing-form {
@@ -35,18 +36,18 @@ body{
 }
 
 .mdi-action-favorite-outline{
-    font-size: 130px;
-    color: #78909c;
+    font-size: 130px;  /*006064 cyan darken-4*/
+    color: #880e4f;
 }
 
 .mdi-social-group{
     font-size: 130px;
-    color: #78909c;
+    color: #880e4f;
 }
 
 .mdi-communication-chat{
     font-size: 130px;
-    color: #78909c;
+    color: #880e4f;
 }
 
 #banner h1 {
