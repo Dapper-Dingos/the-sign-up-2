@@ -1,6 +1,5 @@
 'use strict';
 
-
 angular.module('theSignUp2App')
 
   .controller('mapsController', function ($scope, $log, $timeout, JobsFactory) {
