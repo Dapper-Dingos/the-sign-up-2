@@ -2,31 +2,15 @@
 
 
 angular.module('theSignUp2App')
-.factory('GoogleMaps', function() {
-  var maps = {};
 
-  function addMap(mapId) {
-    maps[mapId] = {};
-  }
-  function getMap(mapId) {
-    if (!maps[mapId]) addMap(mapId);
-    return maps[mapId];
-  }
-
-  return {
-    addMap: addMap,
-    getMap: getMap
-  }
-})
-
-  .controller('mapsController', function ($scope, $log, $timeout, JobsFactory, GoogleMaps) {
+  .controller('mapsController', function ($scope, $log, $timeout, JobsFactory) {
     $scope.map = {center: {latitude: 30.2500, longitude: 97.7500}, zoom: 12 };
     $scope.options = {scrollwheel: false};
     $scope.coordsUpdates = 0;
     $scope.dynamicMoveCtr = 0;
     $scope.message = 'Its working!!!!';
     $scope.geocoder;
-     $scope.infowindow = new google.maps.InfoWindow();
+    $scope.infowindow = new google.maps.InfoWindow();
     $scope.jobsList;
     $scope.marker = {
       id: 0,
@@ -90,6 +74,10 @@ angular.module('theSignUp2App')
 
 
 	$scope.jobTracker = function(job){
+	}
+
+	$scope.renderPicture = function(url){
+		return '<img src="' + url + '">'
 	}
 
 

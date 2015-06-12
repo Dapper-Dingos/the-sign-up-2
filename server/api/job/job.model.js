@@ -13,7 +13,8 @@ var JobSchema = new Schema({
   latitude : Number,
   description: String,
   price: Number,
-  active: Boolean
+  active: Boolean,
+  picture: String
 });
 
 module.exports = mongoose.model('Job', JobSchema);
