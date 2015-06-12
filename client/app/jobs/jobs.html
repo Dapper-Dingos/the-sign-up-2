@@ -69,43 +69,41 @@
 </div>
   <!-- <div class='container'> -->
 
-<div class='row'>
 
-  <div class="box col s6">
-    <div id='jobList'>
-      <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
-        <li ng-repeat="job in jobs | filter:filters">
-          <div class="collapsible-header blue white-text"  ng-class="($index==1) ? 'active' : ''">
-           <strong>Description</strong>: {{ job.description }}
-          </div>
-             <div class="collapsible-body blue lighten-3">
-                <div class="m12 col">
-                  <div class="card">
-                    <div class="card-content row">
-                      <div class="s12 l3 col">
-                        <div class="col s6 offset-s2"> {{ job.name }} </div>
+<div ng-controller="JobsCtrl"> 
+  <div class='row'>
+  
+    <div class="col s6">
+      <div id='jobList'>
+        <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+          <li ng-repeat="job in jobs | filter">
+            <div class="collapsible-header blue white-text"  ng-class="($index==1) ? 'active' : ''">
+            <strong> {{ friends[job.byUserId] }} needs help with </strong>
+               {{ job.description }} </div>
+                <div class="collapsible-body blue lighten-3">
+                  <div class="s12 m12 col">
+                    <div class="card">
+                      <div class="card-content row">
+                        <div class="s12 l3 row">
+                          <div class='right-align'>
 
-                          <div class="col s4 offset-s2"><strong>Category</strong> <a name="currentActivity" value="{{category}}" ng-model="job.category" {{ job.category }} </a> 
-                            </div> 
-           
-                          <div class="right-align">
-                          <label="col s4 offset-s2"><strong>Name</strong>: {{ friends[job.byUserId] }}  <label>
-                         
-                          <label>Address</label>: {{ job.location }}
-                          <label><strong>Date Needed</strong>: {{ job.price }}
-                          </div>
+                          <p> Job name: {{ job.name }} </p>
+                          <p> Category:  
+                          <a name="currentActivity" value="{{category}}" ng-model="job.category"> {{ job.category }} </a> </p>
+                          <p> Address </strong>: {{ job.location }} </p>
+                          
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </div>
+    <div class='col s6' ng-include="'app/maps/maps.html'"></div>
   </div>
-   <div class='col s6' ng-include="'app/maps/maps.html'"></div>
 </div>
-  
 <!--   <div class='col s6'>
     <div class="left-align">
         <div class="waves-effect waves-light btn">
@@ -161,8 +159,11 @@
           edge: 'left', 
           closeOnClick: true
       });
-
-      $('.collapsible').collapsible();
+        setTimeout(function(){
+        $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    }).promise(console.log('happend'));
+      },500)
 
       $('.modalCore').leanModal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
