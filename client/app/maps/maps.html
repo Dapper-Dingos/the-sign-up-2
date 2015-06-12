@@ -1,7 +1,17 @@
 <section id='map'>
 	<div id="map_canvas" ng-controller="mapsController">
       <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
-        <ui-gmap-marker data-ng-repeat='job in jobsList' coords="job.coords" idkey='job._id'>
-        </ui-gmap-marker>
+        <ui-gmap-marker data-ng-repeat='job in jobsList track by $index' coords="job.coords" idkey='job._id' closeClick="closeClick()">
+        <ui-gmap-window isIconVisibleOnClick='true' options="windowOptions" show="show" idkey='job._id' >
+       <div id="content">
+      <div id="siteNotice">
+      </div>
+      <h1 id="firstHeading" class="firstHeading">{{job.name}}</h1>
+      <div id="bodyContent">
+      <p><b>{{job.location}}</b><b>{{job.date}}</b></p>
+      <p>{{job.description}}</p>
+      </div>
+      </div>
+       </ui-gmap-marker>
     </ui-gmap-google-map>
 </div>
