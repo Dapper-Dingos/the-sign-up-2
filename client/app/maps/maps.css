@@ -35,4 +35,10 @@
 .picture{
 	width: 20%;
 	height: 20%;
+	float: right;
+}
+
+
+.username{
+	float: right;
 }

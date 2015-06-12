@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 var JobSchema = new Schema({
   byUserId: String,
   name: String,
+  username: String,
   category: String,
   info: String,
   location: String,

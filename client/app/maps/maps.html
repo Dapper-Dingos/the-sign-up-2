@@ -4,9 +4,10 @@
         <ui-gmap-marker data-ng-repeat='job in jobsList track by $index' coords="job.coords" idkey='job._id' closeClick="closeClick()">
         <ui-gmap-window isIconVisibleOnClick='true' options="windowOptions" show="show" idkey='job._id' >
         <div id='popUp' class="col s12 m6">
-          <div class="card darken-1">
             <div class="card-content black-text">
-              <span class="card-title black-text"><b>{{job.name}}</b></span><img class='picture' src='{{job.picture}}'>
+          <div class="card darken-1 black-text" id='username'><div>{{job.username}}</div><img class='picture' src='{{job.picture}}'>
+              <span class="card-title black-text"><b>{{job.name}}</b></span>
+          </div>
 
       <p class='flow-text'>{{job.location}}{{job.date}}</p>
             </div>
