@@ -82,7 +82,13 @@ angular.module('theSignUp2App')
     }
 
     $scope.updateProfileInfo = function(){
+      $scope.taken = false;   //#DD: Added functionality to prevent repeat skills
+                              //#DD: Todo later: Add a Materialize toast to alert user
       if( $scope.currentUser.profileInfo.newSkill && event.keyCode == 13 ) {
+        if($scope.currentUser.profileInfo.skills.indexOf($scope.currentUser.profileInfo.newSkill) !== -1){
+          $scope.taken=true;
+          return;
+        }
         $scope.currentUser.profileInfo.skills.push($scope.currentUser.profileInfo.newSkill);
         $scope.currentUser.profileInfo.newSkill = '';
         console.log($scope.currentUser.profileInfo.skills);
