@@ -67,6 +67,7 @@ angular.module('theSignUp2App')
         }
       console.log('profile.controller.js: createJob', $scope.job)
       $scope.job.picture = $scope.currentUser.profileInfo.profilePicUrl;
+      $scope.job.username = $scope.currentUser.name;
       console.log($scope.job.picture)
       $scope.jobs.push($scope.job)
       Profile.createJob($scope.job)
