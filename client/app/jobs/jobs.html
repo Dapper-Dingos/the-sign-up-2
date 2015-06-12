@@ -1,4 +1,6 @@
-<nav class='light-green darken-3' ng-controller="NavbarCtrl">
+<div class="buffer"></div>
+
+<nav class='pink darken-4' ng-controller="NavbarCtrl">
   <ul id="slide-out" class="side-nav blue-grey darken-1">
     <li><a href="/jobs" class="white-text"><h4>Jobs</h4></a></li>
     <li><a href="/profile" class="white-text"><h4>Profile</h4></a></li>
@@ -8,60 +10,59 @@
   </ul>
     <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
 </nav>
+<br>
+<div class="center-align">
+<a class="waves-effect waves-light btn-large modalCore light-green accent-4" id='addJob'  href="#modalCore">Add a Community Project</a>
+</div>
+<br>
 
-
-<a class="waves-effect waves-light btn modalCore right-align" id='addJob'  href="#modalCore">Add a Community Project</a>
 <div class='wholePage'>
+
 <div id='newJob'>
     <div id="modalCore" class="modal bottom-sheet modal-fixed-footer">
       <form class="modal-content">
-          <div id="form-group">
-             
-                  <div class="row">
-                      <div class="col s4">
+          <div id="form-group">  
+                  <div class="row valign-wrapper">
+<!--                       <div class="col s4">
                           <label for="exampleInputEmail1" class="text"> List your needs </label>
+                      </div>-->
+                      <div class="input-field col s4 valign">
+                          <input type='textarea' class="row s4 form-control" placeholder="Please give your project a title." ng-model="job.name">
                       </div>
-                        <div class="col s8">
-                          <label> Choose the best fitting category </label>
-                      </div>
-
-                      <div class="input-field col s4">
-                          <input type='textarea' class="row s4 form-control" placeholder="This will show up in our gig list" ng-model="job.name">
-                      </div>
-                 
-                        <label data-ng-repeat="category in categories" class="category"> <a name="currentActivity" value="{{category}}" ng-model="job.category" class="waves-effect waves-light btn"><i class="mdi-file-cloud left"></i> 
+                
+                      <div class="col s8 valign">
+                        <label class="blue-grey-text text-darken-3"> Choose a category: </label>
+                          <label data-ng-repeat="category in categories" class="category"> <a name="currentActivity" value="{{category}}" ng-model="job.category" class="waves-effect waves-light btn light-green accent-4"><i class="mdi-file-cloud left"></i> 
                                       {{ category }} </a>
                         </label>
+                      </div>
+
+                 
                   </div>
 
-        
-       
-            <div class="row">
+            <div class="row center-align">
                 <div class="col s4" id="form-group">
-                    <label class="text">Task Description</label>
-                    <input type='textarea' class="form-control" placeholder="What do you need help with?" ng-model="job.description" rows="5">
+                   <!--  <label class="text">Task Description</label> -->
+                    <input type='textarea' class="form-control" placeholder="Please describe your project here." ng-model="job.description" rows="5">
                 </div>
             
-        
-       
-          
                 <div class="col s4" id="form-group">
-                    <label class="text">Date</label>
-                    <!-- <input type='textarea' class="form-control" placeholder="Cost per hour" ng-model="job.price"> -->
-                    <input type="date" class="datepicker">
-                </div>
-                <div class="col s4" id="form-group">
-                    <label class="text">Address</label>
+               <!--      <label class="text">Address</label> -->
                     <input id='address' type='textarea' class="form-control" placeholder="Address" ng-model="job.location">
                 </div>
 
-      
-                <div id='jobSubmit'>
-                    <div class="modal-footer">
-                      <button classtype="submit" id="submit" class="modal-action modal-close waves-effect waves-green btn-flat" ng-click='createJob()'> <i class="mdi-content-send center"></i> Submit</button>
-                    </div>
-            </div>
+                <div class="col s4 blue-grey-text text-darken-3" id="form-group">
+                  <!--   <label class="text">Date</label> -->
+                    <!-- <input type='textarea' class="form-control" placeholder="Cost per hour" ng-model="job.price"> -->
+                    <input type="date" class="datepicker">
+                </div>
           </div>
+
+                <div id='jobSubmit' class="center-align">
+                    <!-- <div class="modal-footer"> -->
+                      <button classtype="submit" id="submit" class="modal-action modal-close waves-effect waves-light btn-large light-green accent-4" ng-click='createJob()'> <i class="mdi-content-send center"></i> Submit</button>
+                   <!--  </div> -->
+                </div>
     </form>
     <div ng-show='jobPosted'>Successfully Posted!</div>
   </div>
@@ -74,20 +75,26 @@
     <div class="col s6">
       <div class="box" id='jobList'>
         <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+<<<<<<< HEAD
           <li ng-repeat="job in jobs | orderBy: reverse">
             <div class="collapsible-header blue white-text"  ng-class="($index==1) ? 'active' : ''">
+=======
+          <li ng-repeat="job in jobs | filter">
+            <div class="collapsible-header white-text pink darken-4"  ng-class="($index==1) ? 'active' : ''">
+            <b> {{date}} {{ friends[job.byUserId] }}</b> needs help with: </b>
+>>>>>>> f8bcdec6892253455190c925fb5c30616f451d1c
                {{ job.description }} </div>
-                <div class="collapsible-body blue lighten-3">
+                <div class="collapsible-body pink darken-1">
                   <div class="s12 m12 col">
                     <div class="card">
                       <div class="card-content row">
                         <div class="s12 l3 row">
                           <div class='right-align'>
-                          <img class='listPic' src='{{job.picture}}'>
-                          <p> Job name: {{ job.name }} </p>
-                          <p> Category:  
-                          <a name="currentActivity" value="{{category}}" ng-model="job.category"> {{ job.category }} </a> </p>
-                          <p> Address </strong>: {{ job.location }} </p>
+						   <img class='listPic' src='{{job.picture}}'>
+                          <h5 class="blue-grey-text text-darken-3"> <b>Job name:</b> {{ job.name }} </h5>
+                          <h5 class="blue-grey-text text-darken-3"> <b>Category:  </b>
+                          <a class="blue-grey-text text-darken-3" name="currentActivity" value="{{category}}" ng-model="job.category"> {{ job.category }} </a> </h4>
+                          <h5 class="blue-grey-text text-darken-3"> <b>Address </b>: {{ job.location }} </h5>
                           
                         </div>
                   </div>

@@ -14,14 +14,14 @@
 
 .box {
 /*	margin-bottom: 250px*/
-/*	width: 250px;
-	height: 250px;*/
+/*	width: 250px;*/
+	height: 722px;
 	overflow: scroll;
 }
 
-.category {
+/*.category {
 	margin-top: 10px;
-}
+}*/
 
 .alltext {
 	color: white;
