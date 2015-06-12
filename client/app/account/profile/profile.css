@@ -30,6 +30,14 @@ div,h3 {
 	padding:15px;
 }
 
+#profileBG{
+	background-color: white;
+}
+
+.mdi-image-control-point{
+	font-size: 88px;
+}
+
 /*.job-card {
 	display:inline;
 	position:absolute;

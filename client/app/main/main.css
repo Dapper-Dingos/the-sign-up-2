@@ -1,3 +1,11 @@
+body{
+    /*background-color: #e65100;*/ /*orange darken-4*/
+    /*background-color: #3b5998;*/ /*bluish purple*/
+    background-color: #546e7a; /*blue grey darken 1*/
+    /*background-color: #689f38;*/ /*light-green darken-2*/
+    /*background-color: #FFAB00;*/ /*amber accent-4*/
+}
+
 .thing-form {
     margin: 20px 0;
 }
@@ -12,19 +20,18 @@
     display: block;
 }
 
-.bob{
-    background-color: red;
-    border: 1px solid black;
-}
-
 #hg{
-    margin-top: -40px;
+    margin-top: -30px;
 }
 
 #modal1{
-    height: 160px;
-    /*width: 425px;*/
+    height: 180px;
+/*    width: 60%;*/
     color: #78909c;
+}
+
+#shadow{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .mdi-action-favorite-outline{
