@@ -6,6 +6,7 @@ var mongoose = require('mongoose'),
 var JobSchema = new Schema({
   byUserId: String,
   name: String,
+  username: String,
   category: String,
   info: String,
   location: String,
@@ -13,7 +14,9 @@ var JobSchema = new Schema({
   latitude : Number,
   description: String,
   price: Number,
-  active: Boolean
+  active: Boolean,
+  picture: String,
+  friends: []
 });
 
 module.exports = mongoose.model('Job', JobSchema);
