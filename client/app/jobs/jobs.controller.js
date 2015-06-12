@@ -2,10 +2,11 @@
 
 angular.module('theSignUp2App')
   .controller('JobsCtrl', function ($scope, $http, $cookieStore, User, Auth, Profile, JobsFactory, Message) {
+    $('.collapsible').collapsible({});
     $scope.filters = {};
     $scope.errors = {};
     $scope.jobs = []
-    $scope.categories = ['Transportation', 'Food', 'Handy Work']
+    $scope.categories = ['Tutoring', 'Food Service', 'Handy Work']
     $scope.friends = {};
     $scope.geocoder;
     $scope.geocoder = new google.maps.Geocoder();

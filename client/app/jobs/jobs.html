@@ -1,49 +1,39 @@
 <a class="waves-effect waves-light btn modalCore right-align" id='addJob'  href="#modalCore">Add a Community Project</a>
 <div class='wholePage'>
-<div id='newJob' class="container">
-<div id="modalCore" class="modal bottom-sheet modal-fixed-footer">
-    <form class="modal-content">
-        <div class="container" id="form-group">
-            <div class="center-align">
-                <div class="row">
-                    <div class="col s8 offset-s2">
-                        <label for="exampleInputEmail1" class="text">Give your gig a name.</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s8 offset-s2">
-                        <input type='textarea' class="form-control" placeholder="This will show up in our gig list" ng-model="job.name">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-             <h5 class='center-align'> Category </h5>
+<div id='newJob'>
+    <div id="modalCore" class="modal bottom-sheet modal-fixed-footer">
+      <form class="modal-content">
+          <div id="form-group">
+             
+                  <div class="row">
+                      <div class="col s4">
+                          <label for="exampleInputEmail1" class="text"> List your needs </label>
+                      </div>
+                        <div class="col s8">
+                          <label> Choose the best fitting category </label>
+                      </div>
 
-        </div>
-        <div class="row">
-            <div class="container">
-                <div class="align-left">
-                    <div class="col s12">
+                      <div class="input-field col s4">
+                          <input type='textarea' class="row s4 form-control" placeholder="This will show up in our gig list" ng-model="job.name">
+                      </div>
+                 
                         <label data-ng-repeat="category in categories" class="category"> <a name="currentActivity" value="{{category}}" ng-model="job.category" class="waves-effect waves-light btn"><i class="mdi-file-cloud left"></i> 
-                {{ category }} </a>
-
+                                      {{ category }} </a>
                         </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
+                  </div>
+
+        
+       
             <div class="row">
-                <div class="col s8 offset-s2" id="form-group">
+                <div class="col s4" id="form-group">
                     <label class="text">Task Description</label>
                     <input type='textarea' class="form-control" placeholder="What do you need help with?" ng-model="job.description" rows="5">
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="container">
-                <div class="col s4 offset-s2" id="form-group">
+            
+        
+       
+          
+                <div class="col s4" id="form-group">
                     <label class="text">Date</label>
                     <!-- <input type='textarea' class="form-control" placeholder="Cost per hour" ng-model="job.price"> -->
                     <input type="date" class="datepicker">
@@ -52,25 +42,57 @@
                     <label class="text">Address</label>
                     <input id='address' type='textarea' class="form-control" placeholder="Address" ng-model="job.location">
                 </div>
+
+      
+                <div id='jobSubmit'>
+                    <div class="modal-footer">
+                      <button classtype="submit" id="submit" class="modal-action modal-close waves-effect waves-green btn-flat" ng-click='createJob()'> <i class="mdi-content-send center"></i> Submit</button>
+                    </div>
             </div>
-        </div>
-        <div id='jobSubmit'>
-                <div class="modal-footer">
-                    <button classtype="submit" id="submit" class="modal-action modal-close waves-effect waves-green btn-flat" ng-click='createJob()'> <i class="mdi-content-send center"></i> Submit</button>
-                </div>
-            </div>
+          </div>
     </form>
     <div ng-show='jobPosted'>Successfully Posted!</div>
   </div>
 </div>
   <!-- <div class='container'> -->
 
-<div class='row'>
-<div class='col s6' ng-include="'app/maps/maps.html'"></div>
-  <div class="box offset-s6">
 
-    <div class="center-align">
-      <div class="row">
+<div ng-controller="JobsCtrl"> 
+  <div class='row'>
+  
+    <div class="col s6">
+      <div id='jobList'>
+        <ul class="collapsible collapsible-accordion" data-collapsible="accordion">
+          <li ng-repeat="job in jobs | filter">
+            <div class="collapsible-header blue white-text"  ng-class="($index==1) ? 'active' : ''">
+            <strong> {{ friends[job.byUserId] }} needs help with </strong>
+               {{ job.description }} </div>
+                <div class="collapsible-body blue lighten-3">
+                  <div class="s12 m12 col">
+                    <div class="card">
+                      <div class="card-content row">
+                        <div class="s12 l3 row">
+                          <div class='right-align'>
+
+                          <p> Job name: {{ job.name }} </p>
+                          <p> Category:  
+                          <a name="currentActivity" value="{{category}}" ng-model="job.category"> {{ job.category }} </a> </p>
+                          <p> Address </strong>: {{ job.location }} </p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class='col s6' ng-include="'app/maps/maps.html'"></div>
+  </div>
+</div>
+<!--   <div class='col s6'>
+    <div class="left-align">
         <div class="waves-effect waves-light btn">
           <label class="radioButton">
             <input
@@ -83,48 +105,30 @@
           </label>
         </div>
       </div>
-    </div>
+   
          
 
-    <div class="center-align">
-      <label data-ng-repeat="category in categories" class="radioButton">
-          <input
-              class="center-align"
-              name="currentActivity"
-              type="radio"
-              value="{{category}}"
-              ng-model="filters.category" />
-              <p class="waves-effect waves-light btn">
-              {{category}}
-              </p>
-      </label>        
-    </div>
+      <div class="left-align">
+          <label data-ng-repeat="category in categories" class="radioButton">
+            <input
+                class="left-align"
+                name="currentActivity"
+                type="radio"
+                value="{{category}}"
+                ng-model="filters.category" />
+                <p class="waves-effect waves-light btn">
+                {{category}}
+                </p>
+          </label>   
+      </div>
+    </div> -->
 
-   
-    <div id='jobList'>
-    <div class="col" ng-repeat="job in jobs | filter:filters">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">
-            <div class="row"> 
-              <div class="right-align">
-                <div class="col s4 offset-s2"> {{ job.name }}
-                </div>
-          </span>
-                  <div class="col s4 offset-s2"><strong>Category</strong> <a name="currentActivity" value="{{category}}" ng-model="job.category" class="waves-effect waves-light btn"> {{ job.category }} </a> </div> 
-        </div> 
-                 
-              <div class="right-align">
-                <div class="col s4 offset-s2"><strong>Name</strong>: {{ friends[job.byUserId] }}</div>
-                <div class="col s4 offset-s2"><strong>Description</strong>: {{ job.description }}</div>
-                <div class="col s4 offset-s2"><strong>Address</strong>: {{ job.location }}</div>
-                <div class="col s4 offset-s2"><strong>Date Needed</strong>: {{ job.price }}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-</div>
+
+  
+
+ 
+   <!-- row closing div -->
+
 
 
 
@@ -142,8 +146,11 @@
           edge: 'left', 
           closeOnClick: true
       });
-
-      $('.collapsible').collapsible();
+        setTimeout(function(){
+        $('.collapsible').collapsible({
+      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    }).promise(console.log('happend'));
+      },500)
 
       $('.modalCore').leanModal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal

@@ -17,8 +17,9 @@ body{
 */
 
 .box {
-	width: 600px;
-	height: 722px;
+/*	margin-bottom: 250px*/
+/*	width: 250px;
+	height: 250px;*/
 	overflow: auto;
 }
 
@@ -58,12 +59,14 @@ h5 {
 }
 
 #jobList{
-	width: 600px;
-	height: 722px;
-	overflow: auto;
+/*	width: 50%;*/
+/*	height: 722px;*/
+/*	float: left;*/
+	/*overflow: auto;*/
 }
 
 .maps{
-	width:auto;
-	height: 100%;
+/*	width: auto;*/
+	/*height: 100%;*/
+/*	float: left;*/
 }
