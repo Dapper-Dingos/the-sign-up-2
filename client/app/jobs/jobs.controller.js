@@ -31,6 +31,8 @@ angular.module('theSignUp2App')
         console.log("Job Submitted!")
     };
 
+
+
     JobsFactory.getJobs()
               .then(function(data){
                 $scope.jobs = data
@@ -75,10 +77,32 @@ angular.module('theSignUp2App')
           $scope.jobPosted = data;
           $scope.createJobPressed = false;
           $scope.job = {}
+          JobsFactory.getJobs()
+              .then(function(data){
+                $scope.jobs = data
+                $scope.jobsList = data;
+                $scope.jobFriends = []
+                $scope.jobs.forEach(function(j) {
+                  $scope.jobFriends.push(j.byUserId)
+                })
+                Message.getFriends($scope.jobFriends)
+                  .then(function(data){
+                      for (var i = 0; i < data.length; i++) {
+                        $scope.friends[data[i]._id] = data[i].name
+                      };
+                      console.log($scope.friends + 'friends!')
+                  })
+                  .catch(function(err){
+                      $scope.errors.other = err.message;
+                  })
+              })
+              .catch(function(err){
+                $scope.errors.other = err.message;
+              })
         })
         .catch( function(err) {
           $scope.errors.other = err.message;
         });
-        }) 
+      }) 
     }
   });
